@@ -1,6 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = process.env.TELEGRAM_TOKEN;
 var port = process.env.PORT || 3000;
+$PORT = process.env.PORT
 console.log(token);
 console.log(port);
 //const token = '600082662:AAF9VWyKLlRCD9gkwcFuLz4mfyq2kMXiZgo';
