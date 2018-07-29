@@ -56,6 +56,26 @@ bot.on('message', (msg) => {
             }
         });
     }
+
+    if (msg.text.indexOf(customerA) === 0) {
+        bot.sendMessage(msg.chat.id, "CHF 500 im Monat Juli", {
+            "reply_markup": {
+                "keyboard": [
+                    [commandSendBill, commandGetTotal]
+                ]
+            }
+        });
+    }
+
+    if (msg.text.indexOf(customerB) === 0) {
+        bot.sendMessage(msg.chat.id, "CHF 312 im Monat Juli", {
+            "reply_markup": {
+                "keyboard": [
+                    [commandSendBill, commandGetTotal]
+                ]
+            }
+        });
+    }
 });
 
 bot.onText(/\/start/, (msg) => {
