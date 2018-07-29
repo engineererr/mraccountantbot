@@ -2,6 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = process.env.TELEGRAM_TOKEN;
 var port = process.env.PORT || 3000;
 console.log(token);
+console.log(port);
 //const token = '600082662:AAF9VWyKLlRCD9gkwcFuLz4mfyq2kMXiZgo';
 
 
@@ -29,8 +30,8 @@ const bot = new TelegramBot(token, {
 const commandSendBill = "Rechnung einreichen";
 const commandGetTotal = "Total abfragen";
 
-const customerA = "customerA";
-const customerB = "customerB";
+const customerA = "Kunde A";
+const customerB = "Kunde B";
 
 bot.on('message', (msg) => {
     if (!msg.text) return;
@@ -38,15 +39,15 @@ bot.on('message', (msg) => {
     let Hi = 'hi';
     if (msg.text.toString().toLowerCase().indexOf(Hi) === 0) {
         let username = msg.from.username;
-        bot.sendMessage(msg.chat.id, `Hello ${username}. How can I help you?`);
+        bot.sendMessage(msg.chat.id, `Hallo ${username}. Wie kann ich dir helfen?`);
     }
 
     if (msg.text.indexOf(commandSendBill) === 0) {
-        bot.sendMessage(msg.chat.id, "Please send me the picture");
+        bot.sendMessage(msg.chat.id, "Bitte schick mir die Rechnung.");
     }
 
     if (msg.text.indexOf(commandGetTotal) === 0) {
-        bot.sendMessage(msg.chat.id, "Which customer?", {
+        bot.sendMessage(msg.chat.id, "Für welchen Kunde ist die Rechnung?", {
             "reply_markup": {
                 "keyboard": [
                     [customerA, customerB]
@@ -57,7 +58,7 @@ bot.on('message', (msg) => {
 });
 
 bot.onText(/\/start/, (msg) => {
-    bot.sendMessage(msg.chat.id, "Welcome", {
+    bot.sendMessage(msg.chat.id, "Willkommen", {
         "reply_markup": {
             "keyboard": [
                 [commandSendBill, commandGetTotal]
