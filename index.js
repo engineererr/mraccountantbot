@@ -7,7 +7,7 @@ const vision = require('@google-cloud/vision');
 
 // Creates a client
 const client = new vision.ImageAnnotatorClient({
-    keyFilename: 'D:/AVexcluded/MrAccountantBot/My Project-c7fea86027a8.json'
+    keyFilename: './My Project-c7fea86027a8.json'
 });
 
 const bot = new TelegramBot(token, {
