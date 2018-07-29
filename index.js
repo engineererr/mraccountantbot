@@ -17,7 +17,7 @@ const vision = require('@google-cloud/vision');
 // });
 
 const client = new vision.ImageAnnotatorClient({
-    keyfile: './My Project-2f082c08b8c1.json'
+    keyFilename: process.env.GOOGLE_JSON
 });
 
 const bot = new TelegramBot(token, {
