@@ -1,5 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = process.env.TELEGRAM_TOKEN;
+var port = process.env.PORT || 3000;
 console.log(token);
 //const token = '600082662:AAF9VWyKLlRCD9gkwcFuLz4mfyq2kMXiZgo';
 
@@ -21,7 +22,8 @@ const client = new vision.ImageAnnotatorClient({
 });
 
 const bot = new TelegramBot(token, {
-    polling: true
+    polling: true,
+    port: port
 });
 
 const commandSendBill = "Rechnung einreichen";
