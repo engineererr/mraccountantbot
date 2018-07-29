@@ -1,0 +1,37 @@
+const TelegramBot = require('node-telegram-bot-api');
+const token = '600082662:AAF9VWyKLlRCD9gkwcFuLz4mfyq2kMXiZgo';
+
+const bot = new TelegramBot(token, {
+    polling: true
+});
+
+const commandSendBill = "Rechnung einreichen";
+const commandGetTotal = "Total abfragen";
+
+bot.on('message', (msg) => {
+    console.log(msg);
+    let Hi = 'hi';
+    if (msg.text.toString().toLowerCase().indexOf(Hi) === 0) {
+        bot.sendMessage(msg.chat.id, "How can I help you?");
+    }
+
+    if (msg.text.indexOf(commandSendBill) === 0) {
+        bot.sendMessage(msg.chat.id, "Please send me the picture");
+    }
+
+    if (msg.text.indexOf(commandGetTotal) === 0) {
+        bot.sendMessage(msg.chat.id, "Which customer?");
+    }
+});
+
+bot.onText(/\/start/, (msg) => {
+    bot.sendMessage(msg.chat.id, "Welcome", {
+        "reply_markup": {
+            "keyboard": [
+                [commandSendBill, commandGetTotal]
+            ]
+        }
+    });
+});
+
+bot.on("photo")
