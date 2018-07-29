@@ -8,17 +8,17 @@ console.log(token);
 const vision = require('@google-cloud/vision');
 
 // Creates a client
-const client = new vision.ImageAnnotatorClient({
-    projectId: process.env.GOOGLE_PROJECTID,
-    credentials: {
-        client_email: process.env.GOOGLE_CLIENTEMAIL,
-        private_key: process.env.GOOGLE_PRIVATEKEY,
-    }
-});
-
 // const client = new vision.ImageAnnotatorClient({
-//     keyfile: './My Project-2f082c08b8c1.json'
+//     projectId: process.env.GOOGLE_PROJECTID,
+//     credentials: {
+//         client_email: process.env.GOOGLE_CLIENTEMAIL,
+//         private_key: process.env.GOOGLE_PRIVATEKEY,
+//     }
 // });
+
+const client = new vision.ImageAnnotatorClient({
+    keyfile: './My Project-2f082c08b8c1.json'
+});
 
 const bot = new TelegramBot(token, {
     polling: true
