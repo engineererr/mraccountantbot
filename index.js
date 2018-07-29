@@ -73,14 +73,14 @@ bot.on("photo", (msg) => {
             .textDetection(path)
             .then(results => {
                 const detections = results[0].textAnnotations;
-                console.log('Text:');
-                let response = [];
-                detections.forEach(text => {
-                    if (text.description.toLowerCase().indexOf("rapport") > -1) {
-                        response += text.description;
-                    }
-                });
-                bot.sendMessage(msg.chat.id, "Response: " + JSON.stringify(response));
+                // console.log('Text:');
+                // let response = [];
+                // detections.forEach(text => {
+                //     if (text.description.toLowerCase().indexOf("rapport") > -1) {
+                //         response += text.description;
+                //     }
+                // });
+                bot.sendMessage(msg.chat.id, "Response: " + JSON.stringify(detections));
             })
             .catch(err => {
                 console.error('ERROR:', err);
