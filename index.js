@@ -24,12 +24,12 @@ console.log(process.env.GOOGLE_PRIVATEKEY);
 console.log(process.env.GOOGLE_PROJECTID);
 
 const client = new vision.ImageAnnotatorClient({
-    //keyFilename: './My Project-2f082c08b8c1.json'
-    credentials: {
-        client_email: process.env.GOOGLE_CLIENTEMAIL,
-        private_key: process.env.GOOGLE_PRIVATEKEY,
-    },
-    projectId: process.env.GOOGLE_PROJECTID,
+    keyFilename: process.env.GOOGLE_CONFIG
+    // credentials: {
+    //     client_email: process.env.GOOGLE_CLIENTEMAIL,
+    //     private_key: process.env.GOOGLE_PRIVATEKEY,
+    // },
+    // projectId: process.env.GOOGLE_PROJECTID,
 
 
 });
