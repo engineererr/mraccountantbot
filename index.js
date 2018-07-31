@@ -1,30 +1,12 @@
 const TelegramBot = require('node-telegram-bot-api');
 const token = process.env.TELEGRAM_TOKEN;
-//const token = '600082662:AAF9VWyKLlRCD9gkwcFuLz4mfyq2kMXiZgo';
 var port = process.env.PORT || 3000;
 $PORT = process.env.PORT
-console.log(token);
-console.log(port);
-
 
 // Imports the Google Cloud client library
 const vision = require('@google-cloud/vision');
 
-// Creates a client
-// const client = new vision.ImageAnnotatorClient({
-//     projectId: process.env.GOOGLE_PROJECTID,
-//     credentials: {
-//         client_email: process.env.GOOGLE_CLIENTEMAIL,
-//         private_key: process.env.GOOGLE_PRIVATEKEY,
-//     }
-// });
-
-console.log(process.env.GOOGLE_CLIENTEMAIL);
-console.log(process.env.GOOGLE_PRIVATEKEY);
-console.log(process.env.GOOGLE_PROJECTID);
-
 const client = new vision.ImageAnnotatorClient({
-    // keyFilename: process.env.GOOGLE_CONFIG
     credentials: {
         client_email: process.env.GOOGLE_CLIENTEMAIL,
         private_key: process.env.GOOGLE_PRIVATEKEY,
