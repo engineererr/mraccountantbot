@@ -29,7 +29,7 @@ const client = new vision.ImageAnnotatorClient({
         client_email: process.env.GOOGLE_CLIENTEMAIL,
         private_key: process.env.GOOGLE_PRIVATEKEY,
     },
-    projectId: GOOGLE_PROJECTID,
+    projectId: process.env.GOOGLE_PROJECTID,
 
 
 });
